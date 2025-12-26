@@ -2,6 +2,21 @@
 <Shell
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:BHFanShop.Views"
+    xmlns:pages="clr-namespace:BHFanShop"
     x:Class="BHFanShop.AppShell">
-
+    <TabBar>
+        <Tab Title="Početna" Icon="home.png">
+            <ShellContent ContentTemplate="{DataTemplate pages:MainPage}" />
+        </Tab>
+        <Tab Title="Selekcije" Icon="tournament.png">
+            <ShellContent ContentTemplate="{DataTemplate local:TournamentPage}" />
+        </Tab>
+        <Tab Title="Selekcije" Icon="players.png">
+            <ShellContent ContentTemplate="{DataTemplate local:Selections}" />
+        </Tab>
+        <Tab Title="Shop" Icon="shop.png">
+            <ShellContent ContentTemplate="{DataTemplate local:ShopPage}" />
+        </Tab>
+    </TabBar>
 </Shell>
