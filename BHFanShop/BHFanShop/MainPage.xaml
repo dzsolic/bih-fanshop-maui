@@ -3,34 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BHFanShop.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
-            <Image
-                Source="dotnet_bot.png"
-                HeightRequest="185"
-                Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a submarine number ten" />
+    <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="Center">
+        <Image Source="logo.png" HeightRequest="150" Margin="0,0,0,20"/>
 
-            <Label
-                Text="Hello, World!"
-                Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
+        <Button Text="PRIJAVA" 
+            Clicked="OnPrijavaClicked" 
+            BackgroundColor="#002395" 
+            TextColor="White" />
 
-            <Label
-                Text="Dzesi sola ROLA"
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
-
-            <Button
-                x:Name="CounterBtn"
-                Text="Pritisni me" 
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Fill" />
-        </VerticalStackLayout>
-    </ScrollView>
+        <Button Text="REGISTRACIJA" 
+            Clicked="OnRegistracijaClicked" 
+            BackgroundColor="Gray" 
+            TextColor="White" />
+    </VerticalStackLayout>
 
 </ContentPage>

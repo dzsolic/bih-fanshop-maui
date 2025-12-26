@@ -8,13 +8,12 @@ namespace BHFanShop
         public App()
         {
             InitializeComponent();
-                
-
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new AppShell());
+            var navPage = new NavigationPage(new Views.LoginPage());
+            return new Window(navPage);
         }
         
 

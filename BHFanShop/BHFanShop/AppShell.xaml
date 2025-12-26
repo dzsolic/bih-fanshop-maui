@@ -7,7 +7,7 @@
     x:Class="BHFanShop.AppShell">
     <TabBar>
         <Tab Title="Početna" Icon="home.png">
-            <ShellContent ContentTemplate="{DataTemplate pages:MainPage}" />
+            <ShellContent ContentTemplate="{DataTemplate local:FirstPage}" />
         </Tab>
         <Tab Title="Selekcije" Icon="tournament.png">
             <ShellContent ContentTemplate="{DataTemplate local:TournamentPage}" />
