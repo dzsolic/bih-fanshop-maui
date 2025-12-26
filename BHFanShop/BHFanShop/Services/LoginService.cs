@@ -8,6 +8,7 @@ namespace BHFanShop.Services
     public static class LoginService
     {
         private static List<User> users = new List<User>();
+        public static User CurrentUser { get; set; }
         public static bool Register(string username, string password)
         {
             foreach (var u in users)
@@ -28,6 +29,7 @@ namespace BHFanShop.Services
 
                 if (u.Username == username && u.Password == password)
                 {
+                    CurrentUser = u;
                     return true;
                 }
             }
