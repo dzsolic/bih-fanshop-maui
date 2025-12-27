@@ -9,7 +9,7 @@
         <Tab Title="Početna" Icon="home.png">
             <ShellContent ContentTemplate="{DataTemplate local:FirstPage}" />
         </Tab>
-        <Tab Title="Selekcije" Icon="tournament.png">
+        <Tab Title="Utakmice" Icon="tournament.png">
             <ShellContent ContentTemplate="{DataTemplate local:TournamentPage}" />
         </Tab>
         <Tab Title="Selekcije" Icon="players.png">

@@ -1,14 +1,94 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BHFanShop.Views.ShopPage">
-    <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="Center">
-        <Label Text="Dobrodošli na stranicu shopinga"
-               FontSize="24"
-               HorizontalOptions="Center" />
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="BHFanShop.Views.ShopPage"
+    Title="Fan Shop"
+    BackgroundColor="#031837">
 
-        <Label Text="Ovdje će biti lista dresova i eventualno karte na prodaju to cemo jos vidjeti)"
-               FontSize="18"
-               HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="25">
+
+            
+            <Label Text="FAN SHOP – DRESOVI"
+                   TextColor="Gold"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+
+            <CollectionView x:Name="JerseysCollection"
+                SelectionMode="None">
+
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                         Span="2"
+                         HorizontalItemSpacing="15"
+                         VerticalItemSpacing="20" />
+                </CollectionView.ItemsLayout>
+
+
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Stroke="#0046b8"
+                                StrokeThickness="2"
+                                StrokeShape="RoundRectangle 20"
+                                BackgroundColor="#0046b8"
+                                Padding="10">
+
+                            <VerticalStackLayout Spacing="10">
+
+                                <Image Source="{Binding Image}"
+                                   HeightRequest="160"
+                                   Aspect="AspectFill"
+                                   Margin="0,5" />              
+
+
+                                <Label Text="{Binding Name}"
+                                       TextColor="White"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="Center" />
+
+                                <Label Text="{Binding Price}"
+                                       TextColor="Gold"
+                                       HorizontalOptions="Center" />
+
+                                <Button Text="KUPI"
+                                    BackgroundColor="Gold"
+                                    TextColor="Black"
+                                    FontAttributes="Bold"
+                                    CornerRadius="15"
+                                    HeightRequest="40"
+                                     Clicked="OnBuyClicked"/>           
+
+
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+            
+            <BoxView HeightRequest="2" Color="Gold" Opacity="0.4" />
+
+            <Label Text="ULAZNICE (uskoro)"
+                   TextColor="Gold"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <Border BackgroundColor="#0046b8"
+                    Stroke="#031837"
+                    StrokeShape="RoundRectangle 20"
+                    Padding="20">
+
+                <Label Text="Kupovina karata sa QR kodom će biti dostupna uskoro."
+                       TextColor="White"
+                       HorizontalTextAlignment="Center" />
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
