@@ -1,14 +1,84 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BHFanShop.Views.TournamentPage">
-    <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="Center">
-        <Label Text="Dobrodošli na stranicu turnira"
-               FontSize="24"
-               HorizontalOptions="Center" />
+             xmlns:models="clr-namespace:BHFanShop.Models"
+             x:Class="BHFanShop.Views.TournamentPage"
+             Title="Kvalifikacije">
 
-        <Label Text="Ovdje će biti trenutni turniri koje igra bosna"
-               FontSize="18"
-               HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout Padding="15" Spacing="20">
+
+            <Label Text="Tabela kvalifikacija"
+       FontSize="22"
+       FontAttributes="Bold"
+       HorizontalOptions="Center" 
+       Margin="0,10"/>
+
+            <CollectionView x:Name="QualificationTable" ItemsLayout="VerticalList">
+                <CollectionView.Header>
+
+                    <Grid Padding="10" ColumnDefinitions="50,*,80,50" RowDefinitions="Auto">
+                        <Label Text="#" FontAttributes="Bold"/>
+                        <Label Text="Tim" Grid.Column="1" FontAttributes="Bold"/>
+                        <Label Text="GR" Grid.Column="2" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                        <Label Text="B" Grid.Column="3" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                    </Grid>
+                </CollectionView.Header>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Table">
+                        <Grid Padding="10" ColumnDefinitions="50,*,80,50" RowSpacing="5">
+                            <Label Text="{Binding Position}" FontAttributes="Bold"/>
+                            <Label Text="{Binding Team}" Grid.Column="1"/>
+                            <Label Text="{Binding GoalDifference}" Grid.Column="2" HorizontalTextAlignment="Center"/>
+                            <Label Text="{Binding Points}" Grid.Column="3" HorizontalTextAlignment="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+            <Label Text="Odigrane utakmice" FontSize="20" FontAttributes="Bold" Margin="0,10"/>
+
+            <CollectionView x:Name="PlayedMatches" ItemsLayout="VerticalList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Match">
+                        <Border Stroke="Gray" StrokeThickness="1" StrokeShape="10" Padding="10" Margin="0,5">
+                            <Grid ColumnDefinitions="*,*,*" VerticalOptions="Center">
+                                
+                                <Label Text="{Binding Home}" 
+                           FontAttributes="Bold" 
+                           HorizontalOptions="Center" 
+                           Grid.Column="0"/>
+                                <Label Text="{Binding Result}" 
+                           FontAttributes="Bold" 
+                           HorizontalOptions="Center" 
+                           Grid.Column="1"/>
+                                <Label Text="{Binding Away}" 
+                           FontAttributes="Bold" 
+                           HorizontalOptions="Center" 
+                           Grid.Column="2"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+            <Label Text="Predstojeće utakmice" FontSize="20" FontAttributes="Bold"/>
+            <CollectionView x:Name="UpcomingMatches" ItemsLayout="VerticalList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Match">
+                        <Border Stroke="Gray" StrokeThickness="1" StrokeShape="10" Padding="10" Margin="0,5">
+                            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto">
+                                <Label Text="{Binding Date, StringFormat='{0:dd.MM.yyyy}'}" Grid.ColumnSpan="2" HorizontalOptions="Center" TextColor="Gray"/>
+                                <Label Text="{Binding Home}" Grid.Row="1" HorizontalOptions="Center"/>
+                                <Label Text="{Binding Away}" Grid.Row="1" Grid.Column="1" HorizontalOptions="Center"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
