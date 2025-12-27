@@ -4,11 +4,14 @@
              x:Class="BHFanShop.Views.RegisterPage"
              Title="RegisterPage">
     <VerticalStackLayout Spacing="15" Padding="30" VerticalOptions="Center">
+        <Image Source="logo.png" HeightRequest="120" Margin="0,0,0,20"/>
+        
         <Label Text="Registracija" FontSize="24" HorizontalOptions="Center" />
 
         <Entry x:Name="UsernameEntry" Placeholder="Korisničko ime" />
         <Entry x:Name="PasswordEntry" Placeholder="Lozinka" IsPassword="True" />
 
-        <Button Text="REGISTRUJ ME" Clicked="OnRegisterClicked" BackgroundColor="#002395" />
+        <Button Text="REGISTRUJ ME" Clicked="OnRegisterClicked" BackgroundColor="#002395" TextColor="White" />
+        
     </VerticalStackLayout>
 </ContentPage>
