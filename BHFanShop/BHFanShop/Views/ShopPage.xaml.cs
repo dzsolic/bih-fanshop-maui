@@ -1,4 +1,5 @@
 using BHFanShop.Models;
+using System.Collections.ObjectModel;
 
 namespace BHFanShop.Views;
 
@@ -8,7 +9,7 @@ public partial class ShopPage : ContentPage
     {
         InitializeComponent();
 
-        JerseysCollection.ItemsSource = new List<Jersey>
+        JerseysCollection.ItemsSource = new ObservableCollection<Jersey>  //Observable zbog stalnog collapsanja//
 {
     new Jersey
     {

@@ -1,5 +1,6 @@
 using BHFanShop.Models;
 using Microsoft.Maui.Controls;
+using System.Collections.ObjectModel;
 
 namespace BHFanShop.Views;
 
@@ -8,7 +9,7 @@ public partial class TournamentPage : ContentPage
     public TournamentPage()
     {
         InitializeComponent();
-        var table = new List<Table>
+        var table = new ObservableCollection<Table>
         {
             new Table { Position=1, Team="Austria", GoalDifference=18, Points=19 },
             new Table { Position=2, Team="Bosna i Hercegovina", GoalDifference=10, Points=17 },
@@ -18,7 +19,7 @@ public partial class TournamentPage : ContentPage
         };
         QualificationTable.ItemsSource = table;
 
-        var matches = new List<Match>
+        var matches = new ObservableCollection<Match>
         {
             new Match { Date = new DateTime(2025,3,21), Home="Rumunija", Away="Bosna i Hercegovina", HomeGoals=0, AwayGoals=1 },
             new Match { Date = new DateTime(2025,3,24), Home="Bosna i Hercegovina", Away="Kipar", HomeGoals=2, AwayGoals=1 },

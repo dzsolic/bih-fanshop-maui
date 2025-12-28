@@ -7,7 +7,10 @@ namespace BHFanShop.Services
 {
     public static class LoginService
     {
-        private static List<User> users = new List<User>();
+        private static List<User> users = new List<User>()
+        {
+            new User{ Username = "a", Password="a"}
+        };
         public static User CurrentUser { get; set; }
         public static bool Register(string username, string password)
         {
