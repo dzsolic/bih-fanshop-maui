@@ -28,6 +28,12 @@ public partial class ShopPage : ContentPage
         Name = "Retro dres",
         Price = "129 KM",
         Image = "retro.png"
+    },
+    new Jersey
+    {
+        Name = "Baby Set",
+        Price = "79 KM ",
+        Image = "babyset.jpeg"
     }
 };
 

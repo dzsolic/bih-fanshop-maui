@@ -53,41 +53,61 @@
             <CollectionView x:Name="PlayedMatches" ItemsLayout="VerticalList">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:Match">
-                        <Border Stroke="#0046b8" StrokeThickness="2" StrokeShape="RoundRectangle 15" Padding="15" Margin="0,5"  BackgroundColor="White">
+                        <Border Stroke="#0046b8"
+                    StrokeThickness="2"
+                    StrokeShape="RoundRectangle 15"
+                    Padding="15"
+                    Margin="0,5"
+                    BackgroundColor="White">
+
                             <Border.Shadow>
                                 <Shadow Brush="#0046b8" Offset="2,2" Radius="8" Opacity="0.2" />
                             </Border.Shadow>
-                            <Grid ColumnDefinitions="*,Auto,*" VerticalOptions="Center">
 
-                                <Label Text="{Binding Home}" 
-                                       FontAttributes="Bold" 
-                                       FontSize="15"
-                                       TextColor="#0046b8"
-                                       HorizontalOptions="End" 
-                                       VerticalOptions="Center"
-                                       Grid.Column="0"/>    
 
-                                <Label Text="{Binding Result}" 
-                                       FontAttributes="Bold" 
-                                       FontSize="18"
-                                       TextColor="Gold"
-                                       HorizontalOptions="Center" 
-                                       VerticalOptions="Center"
-                                       Padding="20,0"
-                                       Grid.Column="1"/>
+                            <Grid RowDefinitions="Auto,Auto" RowSpacing="10">
 
-                                <Label Text="{Binding Away}" 
-                                       FontAttributes="Bold" 
-                                       FontSize="15"
-                                       TextColor="#0046b8"
-                                       HorizontalOptions="Start" 
-                                       VerticalOptions="Center"
-                                       Grid.Column="2"/>        
+                                <Label Text="{Binding Date, StringFormat='{0:dd.MM.yyyy}'}"
+                           Grid.Row="0"
+                           HorizontalOptions="Center"
+                           FontSize="13"
+                           FontAttributes="Bold"
+                           TextColor="Gray" />
+
+                                <Grid Grid.Row="1" ColumnDefinitions="*,Auto,*" VerticalOptions="Center">
+
+                                    <Label Text="{Binding Home}"
+                               FontAttributes="Bold"
+                               FontSize="15"
+                               TextColor="#0046b8"
+                               HorizontalOptions="End"
+                               VerticalOptions="Center"
+                               Grid.Column="0"/>
+
+                                    <Label Text="{Binding Result}"
+                               FontAttributes="Bold"
+                               FontSize="18"
+                               TextColor="Gold"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Padding="20,0"
+                               Grid.Column="1"/>
+
+                                    <Label Text="{Binding Away}"
+                               FontAttributes="Bold"
+                               FontSize="15"
+                               TextColor="#0046b8"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               Grid.Column="2"/>
+                                </Grid>
+
                             </Grid>
                         </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+
 
 
             <Label Text="Predstojeće utakmice" FontSize="20" FontAttributes="Bold" TextColor="#0046b8"/>

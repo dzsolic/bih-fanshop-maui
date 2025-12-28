@@ -48,7 +48,7 @@
 
 
                                 <Label Text="{Binding Name}"
-                                       TextColor="#0046b8"
+                                       TextColor="White"
                                        FontAttributes="Bold"
                                        HorizontalOptions="Center" />
 
