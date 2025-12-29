@@ -5,6 +5,8 @@
     x:Class="BHFanShop.Views.ShopPage"
     BackgroundColor="White">
 
+    <Grid>
+        <Image Source="stadion.jpg" Aspect="AspectFill" />
     <ScrollView>
         
         <VerticalStackLayout Padding="20" Spacing="25">
@@ -97,4 +99,5 @@
 
         </VerticalStackLayout>
     </ScrollView>
+    </Grid>
 </ContentPage>

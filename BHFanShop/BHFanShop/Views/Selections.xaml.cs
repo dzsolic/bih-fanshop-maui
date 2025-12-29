@@ -9,5 +9,18 @@ public partial class Selections : ContentPage
     {
         InitializeComponent();
     }
-    
+    private async void OnAClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new TeamAPage());
+    }
+    private async void OnU21Clicked(object sender,EventArgs e)
+    {
+        await Navigation.PushAsync(new TeamU21Page());
+    }
+    private async void OnZeneClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new TeamWomanPage());
+    }   
+
+
 }
