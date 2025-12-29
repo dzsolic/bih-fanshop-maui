@@ -17,7 +17,7 @@ public partial class Selections : ContentPage
     {
         await Navigation.PushAsync(new TeamU21Page());
     }
-    private async void OnZeneClicked(object sender, EventArgs e)
+    private async void OnWomanClicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new TeamWomanPage());
     }   
