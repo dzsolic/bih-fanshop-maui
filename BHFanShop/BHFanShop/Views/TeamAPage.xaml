@@ -10,6 +10,7 @@
                HorizontalOptions="Fill" 
                VerticalOptions="Fill"
                Margin="-20" />
+        
         <CollectionView x:Name="PlayersList" Margin="15" BackgroundColor="Transparent">
             <CollectionView.ItemTemplate>
                 <DataTemplate>

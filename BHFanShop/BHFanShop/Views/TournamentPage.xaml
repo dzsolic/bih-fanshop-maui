@@ -50,9 +50,19 @@
             </Border>
 
 
-            <Label Text="Odigrane utakmice" FontSize="20" FontAttributes="Bold" Margin="0,10" TextColor="#0046b8"/>
+                <Border BackgroundColor="#990046b8"
+                        StrokeShape="RoundRectangle 12"
+                        Padding="8"
+                        Margin="0,10"
+                        HorizontalOptions="Center">
+                    <Label Text="Odigrane utakmice"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="White"/>  
+                </Border>
 
-            <CollectionView x:Name="PlayedMatches" ItemsLayout="VerticalList">
+
+                <CollectionView x:Name="PlayedMatches" ItemsLayout="VerticalList">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:Match">
                         <Border Stroke="#0046b8"
@@ -112,8 +122,18 @@
 
 
 
-            <Label Text="Predstojeće utakmice" FontSize="20" FontAttributes="Bold" TextColor="#0046b8"/>
-            <CollectionView x:Name="UpcomingMatches" ItemsLayout="VerticalList">
+                <Border BackgroundColor="#990046b8"
+                        StrokeShape="RoundRectangle 12"
+                        Padding="8"
+                        Margin="0,10"
+                        HorizontalOptions="Center">
+                    <Label Text="Predstojeće utakmice"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="White"/>
+                </Border>
+
+                <CollectionView x:Name="UpcomingMatches" ItemsLayout="VerticalList">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:Match">
                         <Border Stroke="#0046b8" 

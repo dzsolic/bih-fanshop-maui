@@ -61,7 +61,7 @@
                                        FontAttributes="Bold"/>
 
                                 <Button Text="KUPI"
-                                    BackgroundColor="#0046b8"
+                                    BackgroundColor="Gold"
                                     TextColor="White"
                                     FontAttributes="Bold"
                                     CornerRadius="15"
