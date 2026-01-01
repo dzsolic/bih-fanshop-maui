@@ -79,25 +79,40 @@
 
             <BoxView HeightRequest="2" Color="#0046b8" Opacity="0.3" />
 
-            <Label Text="ULAZNICE (uskoro)"
-                    TextColor="#0046b8"
-                    FontSize="22"
-                    FontAttributes="Bold"
-                    HorizontalOptions="Center" />
+                <Label Text="KUPOVINA ULAZNICA" TextColor="Gold" FontSize="22"
+       FontAttributes="Bold" HorizontalOptions="Center" />
 
-            <Border BackgroundColor="#0046b8"
-                    Stroke="#0046b8"
-                    StrokeShape="RoundRectangle 20"
-                    StrokeThickness="2"
-                    Padding="20">
+                <Border BackgroundColor="#AA0046b8" Stroke="White" StrokeThickness="1"
+        StrokeShape="RoundRectangle 20" Padding="20">
+                    <VerticalStackLayout Spacing="15">
+                        <Label x:Name="NextMatchLabel" Text="Utakmica: -" TextColor="White" />
+                        <Button Text="GENERIŠI KARTU" BackgroundColor="Gold" TextColor="Black"
+                FontAttributes="Bold" Clicked="OnTicketClicked" />
+                    </VerticalStackLayout>
+                </Border>
 
-                <Label Text="Kupovina karata sa QR kodom će biti dostupna uskoro."
-                       TextColor="White"
-                       FontSize="14"
-                       HorizontalTextAlignment="Center" />
-            </Border>
+                <Border x:Name="TicketView" IsVisible="False" BackgroundColor="White"
+        Stroke="Gold" StrokeThickness="2" StrokeShape="RoundRectangle 10"
+        Margin="0,20" Padding="0">
+                    <Grid ColumnDefinitions="*,Auto,120" HeightRequest="160" Padding="0">
+                      
+                        <VerticalStackLayout Grid.Column="0" Padding="12" Spacing="4" VerticalOptions="Center">
+                            <Label x:Name="TicketUserLabel" Text="IME PREZIME" FontAttributes="Bold" FontSize="16" TextColor="Black" />
+                            <Label x:Name="TicketMatchLabel" Text="Utakmica" FontSize="13" TextColor="#0046b8" />
+                            <Label x:Name="TicketDateLabel" Text="Datum" FontSize="12" TextColor="Black" />
+                        </VerticalStackLayout>
 
-        </VerticalStackLayout>
+                        <BoxView Grid.Column="1" WidthRequest="1" Color="LightGray" Margin="6,10" />
+
+                       
+                        <Grid Grid.Column="2" Padding="10" RowDefinitions="Auto,Auto" ColumnDefinitions="Auto" BackgroundColor="#F8F8F8">
+                            <Image x:Name="QRCodeImage" HeightRequest="90" WidthRequest="90" Grid.Row="0" />
+                            <Label Text="SCAN ME" Grid.Row="1" HorizontalOptions="Center" FontSize="9" TextColor="Black" Margin="0,6,0,0" />
+                        </Grid>
+                    </Grid>
+                </Border>
+
+            </VerticalStackLayout>
     </ScrollView>
     </Grid>
 </ContentPage>

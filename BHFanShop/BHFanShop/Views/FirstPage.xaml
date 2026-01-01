@@ -46,7 +46,7 @@
 
                 <VerticalStackLayout Grid.Row="1" VerticalOptions="Center">
                     <Label x:Name="UserNameLabel" 
-                   Text="AJDIN" 
+                   Text="Nema" 
                    TextColor="White" 
                    FontSize="25" 
                    FontAttributes="Bold" 
@@ -57,17 +57,17 @@
 
                     <VerticalStackLayout Grid.Column="0">
                         <Label Text="UTAKMICE" TextColor="Gold" FontSize="10" FontAttributes="Bold" />
-                        <Label Text="15" TextColor="White" FontSize="18" FontAttributes="Bold" />
+                        <Label x:Name="TicketLabel" Text="0" TextColor="White" FontSize="18" FontAttributes="Bold" />
                     </VerticalStackLayout>
 
                     <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
                         <Label Text="DRESOVI" TextColor="Gold" FontSize="10" FontAttributes="Bold" />
-                        <Label Text="2" TextColor="White" FontSize="18" FontAttributes="Bold" />
+                        <Label x:Name="JerseyLabel" Text="0" TextColor="White" FontSize="18" FontAttributes="Bold" />
                     </VerticalStackLayout>
 
                     <VerticalStackLayout Grid.Column="2" HorizontalOptions="End">
                         <Label Text="STATUS" TextColor="Gold" FontSize="10" FontAttributes="Bold" />
-                        <Label Text="NAVIJAČ" TextColor="White" FontSize="18" />
+                        <Label x:Name="StatusLabel" Text="NAVIJAČ" TextColor="White" FontSize="18" />
                     </VerticalStackLayout>
 
                 </Grid>
@@ -127,8 +127,8 @@
                     </VerticalStackLayout>
 
                     <VerticalStackLayout Grid.Row="1" Grid.Column="1" HorizontalOptions="Center">
-                        <Label Text="INFO CENTAR" TextColor="White" FontAttributes="Bold" FontSize="16"/>
-                        <Label Text="Vijesti i objave" TextColor="LightGray" FontSize="13" HorizontalOptions="Center"/>
+                        <Label Text="RASPORED" TextColor="White" FontAttributes="Bold" FontSize="16"/>
+                        <Label Text="Tabela i utakmice" TextColor="LightGray" FontSize="13" HorizontalOptions="Center"/>
                     </VerticalStackLayout>
                 </Grid>
 

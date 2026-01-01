@@ -1,42 +1,27 @@
-using BHFanShop.Models;
+ï»¿using BHFanShop.Models;
+using BHFanShop.Services;
 using System.Collections.ObjectModel;
 
 namespace BHFanShop.Views;
 
 public partial class ShopPage : ContentPage
 {
+    private Match? nextMatch;
     public ShopPage()
     {
         InitializeComponent();
 
-        JerseysCollection.ItemsSource = new ObservableCollection<Jersey>  //Observable zbog stalnog collapsanja//
-{
-    new Jersey
-    {
-        Name = "Domaæi dres",
-        Price = "109 KM",
-        Image = "dres_domaci.jpeg"
-    },
-    new Jersey
-    {
-        Name = "Gostujuæi dres",
-        Price = "109 KM",
-        Image = "dres_gostujuci.jpeg"
-    },
-    new Jersey
-    {
-        Name = "Retro dres",
-        Price = "129 KM",
-        Image = "retro.png"
-    },
-    new Jersey
-    {
-        Name = "Baby Set",
-        Price = "79 KM ",
-        Image = "babyset.jpeg"
-    }
-};
-
+        JerseysCollection.ItemsSource = new ObservableCollection<Jersey>
+        {
+            new Jersey { Name = "DomaÄ‡i dres",  Price = "109 KM", Image = "dres_domaci.jpeg" },
+            new Jersey { Name = "GostujuÄ‡i dres", Price = "109 KM", Image = "dres_gostujuci.jpeg" },
+            new Jersey { Name = "Retro dres",     Price = "129 KM", Image = "retro.png" },
+            new Jersey { Name = "Baby Set",        Price = "79 KM",  Image = "babyset.jpeg" }
+        };
+        nextMatch = MatchData.GetNextUpcoming();
+        NextMatchLabel.Text = nextMatch != null
+            ? $"Utakmica: {nextMatch.Home} - {nextMatch.Away} ({nextMatch.Date:dd.MM.yyyy})"
+            : "Utakmica: Nema dostupnih utakmica";
     }
 
     private async void OnBuyClicked(object sender, EventArgs e)
@@ -55,9 +40,30 @@ public partial class ShopPage : ContentPage
         if (string.IsNullOrWhiteSpace(address))
             return;
 
-        await DisplayAlert(
-            "Uspješno",
-            "Kupovina je uspješno izvršena!",
+        await DisplayAlertAsync(
+            "UspjeÅ¡no",
+            "Kupovina je uspjeÅ¡no izvrÅ¡ena!",
             "OK");
+        LoginService.AddJerseyCurrentUser();
+    }
+    private async void OnTicketClicked(object Sender, EventArgs e)
+    {
+        if (nextMatch == null)
+        {
+            await DisplayAlertAsync("GreÅ¡ka", "Nema dostupne utakmice.", "OK");
+            return;
+        }
+        var usr = LoginService.CurrentUser.Username;
+        TicketUserLabel.Text = usr.ToUpper();
+        TicketMatchLabel.Text = $"{nextMatch.Home} - {nextMatch.Away}";
+        TicketDateLabel.Text = $"{nextMatch.Date:dd.MM.yyyy}";
+
+        var payload = $"IME={usr};UTAKMICA={nextMatch.Home}-{nextMatch.Away};DATUM={nextMatch.Date:dd.MM.yyyy}";
+        var url = $"https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={Uri.EscapeDataString(payload)}";
+        QRCodeImage.Source = ImageSource.FromUri(new Uri(url));
+
+        TicketView.IsVisible = true;
+
+        LoginService.AddTicketCurrentUser();
     }
 }

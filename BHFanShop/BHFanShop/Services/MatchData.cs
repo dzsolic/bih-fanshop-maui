@@ -1,26 +1,12 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using BHFanShop.Models;
-using BHFanShop.Services;
-using Microsoft.Maui.Controls;
-using System.Collections.ObjectModel;
-
-namespace BHFanShop.Views;
-
-public partial class TournamentPage : ContentPage
+namespace BHFanShop.Services
 {
-    public TournamentPage()
+    public static class MatchData
     {
-        InitializeComponent();
-        var table = new ObservableCollection<Table>
-        {
-            new Table { Position=1, Team="Austria", GoalDifference=18, Points=19 },
-            new Table { Position=2, Team="Bosna i Hercegovina", GoalDifference=10, Points=17 },
-            new Table { Position=3, Team="Rumunija", GoalDifference=9, Points=13 },
-            new Table { Position=4, Team="Kipar", GoalDifference=0, Points=8 },
-            new Table { Position=5, Team="San Marino", GoalDifference=-37, Points=0 }
-        };
-        QualificationTable.ItemsSource = table;
-
-        var matches = new ObservableCollection<Match>
+        private static readonly List<Match> _matches = new()
         {
             new Match { Date = new DateTime(2025,3,21), Home="Rumunija", Away="Bosna i Hercegovina", HomeGoals=0, AwayGoals=1 },
             new Match { Date = new DateTime(2025,3,24), Home="Bosna i Hercegovina", Away="Kipar", HomeGoals=2, AwayGoals=1 },
@@ -30,10 +16,15 @@ public partial class TournamentPage : ContentPage
             new Match { Date = new DateTime(2025,10,9), Home="Kipar", Away="Bosna i Hercegovina", HomeGoals=2, AwayGoals=2 },
             new Match { Date = new DateTime(2025,11,15), Home="Bosna i Hercegovina", Away="Rumunija", HomeGoals=3, AwayGoals=1 },
             new Match { Date = new DateTime(2025,11,18), Home="Austria", Away="Bosna i Hercegovina", HomeGoals=1, AwayGoals=1 },
-            new Match { Date = new DateTime(2026,3,26), Home="Vels", Away="Bosna i Hercegovina"}
+            new Match { Date = new DateTime(2026,3,26), Home="Vels", Away="Bosna i Hercegovina" }
         };
 
-        PlayedMatches.ItemsSource = MatchData.GetPlayed();
-        UpcomingMatches.ItemsSource = MatchData.GetUpcoming();
+        public static IReadOnlyList<Match> GetAll() => _matches;
+
+        public static IReadOnlyList<Match> GetPlayed() => _matches.Where(m => m.IsPlayed).ToList();
+
+        public static IReadOnlyList<Match> GetUpcoming() => _matches.Where(m => !m.IsPlayed).OrderBy(m => m.Date).ToList();
+
+        public static Match? GetNextUpcoming() => GetUpcoming().FirstOrDefault();
     }
 }
