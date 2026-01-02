@@ -62,17 +62,19 @@
                 </Border>
 
 
-                <CollectionView x:Name="PlayedMatches" ItemsLayout="VerticalList">
-                <CollectionView.ItemTemplate>
+                <CollectionView x:Name="PlayedMatches"
+                                SelectionMode="Single"
+                                SelectionChanged="PlayedMatches_SelectionChanged">      
+                    <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:Match">
-                        <Border Stroke="#0046b8"
-                    StrokeThickness="2"
-                    StrokeShape="RoundRectangle 15"
-                    Padding="15"
-                    Margin="0,5"
-                    BackgroundColor="White">
+                            <Border Stroke="#0046b8"
+                                    StrokeThickness="2"
+                                    StrokeShape="RoundRectangle 15"
+                                    Padding="15"
+                                    Margin="0,5"
+                                    BackgroundColor="White">    
 
-                            <Border.Shadow>
+                                <Border.Shadow>
                                 <Shadow Brush="#0046b8" Offset="2,2" Radius="8" Opacity="0.2" />
                             </Border.Shadow>
 

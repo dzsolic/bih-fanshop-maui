@@ -11,6 +11,8 @@ namespace BHFanShop.Models
         public string Away { get; set; }
         public int HomeGoals { get; set; }
         public int AwayGoals { get; set; }
+        public List<Goal> Goals { get; set; } = new();
+
 
         public string Result => $"{HomeGoals} : {AwayGoals}";
         public bool IsPlayed => Date <= DateTime.Now;

@@ -1,0 +1,69 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:BHFanShop.Models"
+             x:Class="BHFanShop.Views.MatchDetailsPage"
+             BackgroundColor="#80000000">
+
+    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+        <Border BackgroundColor="White"
+                StrokeShape="RoundRectangle 20"
+                Padding="20"
+                WidthRequest="320">
+
+            <VerticalStackLayout Spacing="15">
+
+                <Grid ColumnDefinitions="*, Auto, *" HorizontalOptions="Fill">
+                    <Label Grid.Column="0" 
+                           Text="{Binding Home}" 
+                           FontAttributes="Bold" 
+                           FontSize="16" 
+                           TextColor="Black"
+                           HorizontalOptions="Center" />
+
+                    <Label Grid.Column="1" 
+                           Text=" - " 
+                           FontSize="16" 
+                           TextColor="Gray"
+                           Margin="5,0" />
+
+                    <Label Grid.Column="2" 
+                           Text="{Binding Away}" 
+                           FontAttributes="Bold" 
+                           FontSize="16" 
+                           TextColor="Black"
+                           HorizontalOptions="Center" />
+                </Grid>
+
+                <Label Text="{Binding Result}"
+                       FontSize="35"
+                       TextColor="Gold"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"/>
+
+                <BoxView HeightRequest="1" Color="LightGray"/>
+
+                <Label Text="Strijelci:" FontAttributes="Bold" TextColor="Gray" />
+
+                <CollectionView ItemsSource="{Binding Goals}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Goal">
+                            <Label Text="{Binding DisplayText}" 
+                                   TextColor="Black" 
+                                   HorizontalOptions="Center" 
+                                   Margin="0,2"/>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                        <Label Text="Nema golova" HorizontalOptions="Center" TextColor="Silver" />
+                    </CollectionView.EmptyView>
+                </CollectionView>
+
+                <Button Text="Zatvori"
+                        BackgroundColor="#0046b8"
+                        TextColor="White"
+                        Clicked="Close_Clicked"
+                        Margin="0,10,0,0"/>
+            </VerticalStackLayout>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>
