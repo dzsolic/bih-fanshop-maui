@@ -114,6 +114,34 @@ namespace BHFanShop.Services
             new Player { Name = "Milena Nikolić", Club = "Basel", Position = "Napadač", Image = "notfound.jpeg" }
 
         };
+        public static ObservableCollection<Player> U19Team = new ObservableCollection<Player>
+        {
+            new Player { Name = "Dino Kaiser", Club = "Fulham FC U21", Position = "Golman", Image = "notfound.jpeg" },
+            new Player { Name = "Tarik Banjić", Club = "FK Partizan Belgrade U19", Position = "Golman", Image = "notfound.jpeg" },
+
+            new Player { Name = "Jusuf Terzić", Club = "FK Borac Banja Luka", Position = "Odbrana", Image = "notfound.jpeg" },
+            new Player { Name = "Adem Mustafić", Club = "SK Austria Klagenfurt", Position = "Odbrana", Image = "notfound.jpeg" },
+            new Player { Name = "Amel Avdić", Club = "FC Liefering", Position = "Odbrana", Image = "notfound.jpeg" },
+            new Player { Name = "Hamza Redžić", Club = "FK Sarajevo Academy U19", Position = "Odbrana", Image = "notfound.jpeg" },
+            new Player { Name = "Benjamin Zulović", Club = "Paris Saint-Germain Youth", Position = "Odbrana", Image = "notfound.jpeg" },
+            new Player { Name = "Ivan Jelić", Club = "NK Široki Brijeg U19", Position = "Odbrana", Image = "notfound.jpeg" },
+
+            new Player { Name = "Armin Spahić", Club = "Borussia Mönchengladbach U19", Position = "Vezni", Image = "notfound.jpeg" },
+            new Player { Name = "Rijad Telalović", Club = "NK Čelik Zenica", Position = "Vezni", Image = "notfound.jpeg" },
+            new Player { Name = "Darko Savić", Club = "FK Sloga Meridian", Position = "Vezni", Image = "notfound.jpeg" },
+            new Player { Name = "Pavle Šarac", Club = "AS Roma U18", Position = "Vezni", Image = "notfound.jpeg" },
+            new Player { Name = "Admir Gojak", Club = "FK Željezničar Sarajevo U19", Position = "Vezni", Image = "notfound.jpeg" },
+
+            new Player { Name = "Amar Cerić", Club = "FK Sarajevo Academy U19", Position = "Krilo", Image = "notfound.jpeg" },
+            new Player { Name = "Ivan Kraljević", Club = "NK Široki Brijeg U19", Position = "Krilo", Image = "notfound.jpeg" },
+            new Player { Name = "Dragan Pejić", Club = "FK Borac Banja Luka U19", Position = "Krilo", Image = "notfound.jpeg" },
+            new Player { Name = "Mehmed Šehić", Club = "NK Čelik Zenica U19", Position = "Krilo", Image = "notfound.jpeg" },
+
+            new Player { Name = "Din Ramić", Club = "FC Zürich U21", Position = "Napadač", Image = "notfound.jpeg" },
+            new Player { Name = "Said Nišić", Club = "RB Salzburg U18", Position = "Napadač", Image = "notfound.jpeg" },
+            new Player { Name = "Antonio Arapović", Club = "HŠK Zrinjski Mostar U19", Position = "Napadač", Image = "notfound.jpeg" }
+        };
+
         public static ObservableCollection<Player> U17Team = new ObservableCollection<Player>
         {
             new Player { Name = "Meris Gradaščević", Club = "Eintracht Frankfurt U19", Position = "Golman", Image = "notfound.jpeg" },

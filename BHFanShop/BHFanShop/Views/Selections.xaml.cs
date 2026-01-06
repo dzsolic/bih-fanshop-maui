@@ -25,6 +25,10 @@ public partial class Selections : ContentPage
     {
         await Navigation.PushAsync(new TeamU17Page());
     }
+    private async void OnU19Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new TeamU19Page());
+    }
 
 
 
