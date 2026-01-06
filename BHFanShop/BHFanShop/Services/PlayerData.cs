@@ -133,7 +133,7 @@ namespace BHFanShop.Services
             new Player { Name = "Mak Pita", Club = "FK Sarajevo Academy U17", Position = "Vezni", Image = "notfound.jpeg" },
             new Player { Name = "Luka Radić", Club = "Eintracht Frankfurt U17", Position = "Vezni", Image = "notfound.jpeg" },
 
-            new Player { Name = "Amel Tiro", Club = "FK Velež Mostar U17", Position = "Napadač", Image = "notfound.jpeg" },
+            
             new Player { Name = "Andrija Pejaković", Club = "Crvena Zvezda U17", Position = "Napadač", Image = "notfound.jpeg" },
             new Player { Name = "Vedad Husović", Club = "FK Sarajevo Academy U17", Position = "Napadač", Image = "notfound.jpeg" },
             new Player { Name = "Matej Deket", Club = "FK Borac Banja Luka U19", Position = "Napadač", Image = "notfound.jpeg" },
