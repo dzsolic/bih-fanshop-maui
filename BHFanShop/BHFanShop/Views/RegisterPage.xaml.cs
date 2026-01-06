@@ -29,5 +29,10 @@ public partial class RegisterPage : ContentPage
             await DisplayAlertAsync("Greška", "Korisnik već postoji!", "OK");
         }
     }
-    
+    private async void OnGoToLoginClicked(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
+    }
+
+
 }

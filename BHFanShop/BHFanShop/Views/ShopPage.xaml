@@ -86,7 +86,7 @@
         StrokeShape="RoundRectangle 20" Padding="20">
                     <VerticalStackLayout Spacing="15">
                         <Label x:Name="NextMatchLabel" Text="Utakmica: -" TextColor="White" />
-                        <Button Text="GENERIŠI KARTU" BackgroundColor="Gold" TextColor="Black"
+                        <Button Text="KUPI KARTU" BackgroundColor="Gold" TextColor="Black"
                 FontAttributes="Bold" Clicked="OnTicketClicked" />
                     </VerticalStackLayout>
                 </Border>

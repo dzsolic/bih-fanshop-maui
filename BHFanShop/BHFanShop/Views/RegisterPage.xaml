@@ -11,7 +11,21 @@
         <Entry x:Name="UsernameEntry" Placeholder="Korisničko ime" />
         <Entry x:Name="PasswordEntry" Placeholder="Lozinka" IsPassword="True" />
 
-        <Button Text="REGISTRUJ ME" Clicked="OnRegisterClicked" BackgroundColor="#002395" TextColor="White" />
-        
+        <Button Text="REGISTRUJ ME"
+                BackgroundColor="#002395"
+                TextColor="White"
+                HeightRequest="50"
+                Clicked="OnRegisterClicked" />
+
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+            <Label Text="Već imaš nalog?" VerticalOptions="Center" />
+            <Button Text="Prijavi se"
+            TextColor="#002395"
+            BackgroundColor="Transparent"
+            Padding="0"
+            Clicked="OnGoToLoginClicked" />
+        </HorizontalStackLayout>
+
+
     </VerticalStackLayout>
 </ContentPage>
