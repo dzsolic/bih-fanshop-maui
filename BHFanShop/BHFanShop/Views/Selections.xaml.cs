@@ -20,7 +20,12 @@ public partial class Selections : ContentPage
     private async void OnWomanClicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new TeamWomanPage());
-    }   
+    }
+    private async void OnU17Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new TeamU17Page());
+    }
+
 
 
 }

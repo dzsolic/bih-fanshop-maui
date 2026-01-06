@@ -82,6 +82,9 @@
 	  <MauiXaml Update="Views\TeamAPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\TeamU17Page.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\TeamU21Page.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

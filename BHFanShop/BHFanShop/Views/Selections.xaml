@@ -20,6 +20,13 @@
                 BackgroundColor="#0046b8"
                 TextColor="White"
                 Clicked="OnU21Clicked" />
+            
+            <Button Text="U17 REPREZENTACIJA" 
+                    HeightRequest="80"
+                    FontSize="20"
+                    BackgroundColor="#0046b8"
+                    TextColor="White"
+                    Clicked="OnU17Clicked" />
 
             <Button Text="ŽENSKA SELEKCIJA" 
                 HeightRequest="80"
