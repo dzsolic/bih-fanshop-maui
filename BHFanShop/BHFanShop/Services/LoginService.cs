@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Text;
 using BHFanShop.Models;
 using System.Linq;
+using System.Runtime.Loader;
 namespace BHFanShop.Services
 {
     public static class LoginService
     {
         private static List<User> users = new List<User>()
         {
-            new User{ Username = "a", Password="a", TicketCounter = 0, JerseyCounter = 0,Status = "Navijač"}
+            new User{ Username = "a", Password="a", Address="test", FullName="imeprezime" ,Email="test@gmail.com", Phone="225882", TicketCounter = 0, JerseyCounter = 0,Status = "Navijač"}
         };
         public static User CurrentUser { get; set; }
-        public static bool Register(string username, string password)
+        public static bool Register(string username, string password, string fullName, string email, string phone, string address)
         {
             foreach (var u in users)
             {
@@ -21,7 +22,7 @@ namespace BHFanShop.Services
                     return false;
                 }
             }
-            users.Add(new User { Username = username, Password = password, TicketCounter = 0, JerseyCounter = 0, Status = "Navijač" });
+            users.Add(new User { Username = username, Password = password, FullName = fullName, Email = email , Phone = phone, Address = address ,TicketCounter = 0, JerseyCounter = 0, Status = "Navijač" });
             return true;
         }
         public static bool Login(string username, string password)

@@ -26,25 +26,24 @@ public partial class ShopPage : ContentPage
 
     private async void OnBuyClicked(object sender, EventArgs e)
     {
-        string phone = await DisplayPromptAsync(
-            "Kupovina",
-            "Unesite broj telefona:");
+        var user = LoginService.CurrentUser;
 
-        if (string.IsNullOrWhiteSpace(phone))
-            return;
+        var button = sender as Button;
+        var selectedJersey = button?.BindingContext as Jersey;
+        if (selectedJersey == null) return;
+        bool confirm = await DisplayAlertAsync("Potvrda narudžbe",
+        $"Artikal: {selectedJersey.Name}\n" +
+        $"Cijena: {selectedJersey.Price}\n\n" +
+        $"Dostava na adresu: {user.Address}\n" +
+        $"Kontakt telefon: {user.Phone}\n\n" +
+        "Želite li potvrditi kupovinu?", "DA", "NE");
+        if (confirm)
+        {
+            LoginService.AddJerseyCurrentUser();
 
-        string address = await DisplayPromptAsync(
-            "Kupovina",
-            "Unesite adresu:");
-
-        if (string.IsNullOrWhiteSpace(address))
-            return;
-
-        await DisplayAlertAsync(
-            "Uspješno",
-            "Kupovina je uspješno izvršena!",
-            "OK");
-        LoginService.AddJerseyCurrentUser();
+            await DisplayAlertAsync("Uspješno",
+                $"Hvala {user.FullName}, vaša narudžba je primljena!", "OK");
+        }
     }
     private async void OnTicketClicked(object Sender, EventArgs e)
     {
@@ -53,17 +52,28 @@ public partial class ShopPage : ContentPage
             await DisplayAlertAsync("Greška", "Nema dostupne utakmice.", "OK");
             return;
         }
-        var usr = LoginService.CurrentUser.Username;
-        TicketUserLabel.Text = usr.ToUpper();
-        TicketMatchLabel.Text = $"{nextMatch.Home} - {nextMatch.Away}";
-        TicketDateLabel.Text = $"{nextMatch.Date:dd.MM.yyyy}";
+        var usr = LoginService.CurrentUser;
+        bool confirm = await DisplayAlertAsync("Potvrda Rezervacije",
+        $"Utakmica: {nextMatch.Home} - {nextMatch.Away}\n" +
+        $"Datum: {nextMatch.Date:dd.MM.yyyy}\n" +
+        $"Lokacija: Stadion Bilino Polje\n\n" +
+        $"Karta će biti izdata na ime: {usr.FullName}\n" +
+        "Želite li potvrditi kupovinu ulaznice?", "POTVRDI", "ODUSTANI");
 
-        var payload = $"IME={usr};UTAKMICA={nextMatch.Home}-{nextMatch.Away};DATUM={nextMatch.Date:dd.MM.yyyy}";
-        var url = $"https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={Uri.EscapeDataString(payload)}";
-        QRCodeImage.Source = ImageSource.FromUri(new Uri(url));
+        if (confirm)
+        {
+            TicketUserLabel.Text = usr.FullName.ToUpper();
+            TicketMatchLabel.Text = $"{nextMatch.Home} - {nextMatch.Away}";
+            TicketDateLabel.Text = $"{nextMatch.Date:dd.MM.yyyy}";
 
-        TicketView.IsVisible = true;
+            var payload = $"IME={usr.FullName};UTAKMICA={nextMatch.Home}-{nextMatch.Away};DATUM={nextMatch.Date:dd.MM.yyyy}";
+            var url = $"https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={Uri.EscapeDataString(payload)}";
+            QRCodeImage.Source = ImageSource.FromUri(new Uri(url));
 
-        LoginService.AddTicketCurrentUser();
+            TicketView.IsVisible = true;
+
+            LoginService.AddTicketCurrentUser();
+            await DisplayAlertAsync("Uspješno", "Vaša karta je generisana! Možete je pronaći ispod.", "U redu");
+        }
     }
 }

@@ -11,12 +11,12 @@
            VerticalOptions="Fill"
            Margin="-20" />
         
-        <Image Grid.Row="0" Source="logosaveza.png" 
+        <Image Grid.Row="0" Source="logosaveza2.png" 
                    Aspect="AspectFill" WidthRequest="150" HeightRequest="150">
-                <Image.Shadow>
-                    <Shadow Brush="Gold" Offset="0,0" Radius="40" Opacity="0.5" />
-                </Image.Shadow>
-            </Image>
+            <Image.Shadow>
+                <Shadow Brush="Gold" Offset="0,0" Radius="40" Opacity="0.5" />
+            </Image.Shadow>
+        </Image>
 
         <Border Grid.Row="1" 
         StrokeShape="RoundRectangle 20" 

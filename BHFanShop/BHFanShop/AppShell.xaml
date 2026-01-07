@@ -4,7 +4,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:BHFanShop.Views"
     xmlns:pages="clr-namespace:BHFanShop"
-    x:Class="BHFanShop.AppShell">
+    x:Class="BHFanShop.AppShell"
+    
+    Shell.TabBarBackgroundColor="White"
+    Shell.TabBarForegroundColor="#0046b8"
+    Shell.TabBarUnselectedColor="Gray"
+    Shell.TabBarTitleColor="#0046b8">
     <TabBar>
         <Tab Title="Početna" Icon="home.png">
             <ShellContent ContentTemplate="{DataTemplate local:FirstPage}" />

@@ -8,8 +8,13 @@
         
         <Label Text="Registracija" FontSize="24" HorizontalOptions="Center" />
 
-        <Entry x:Name="UsernameEntry" Placeholder="Korisničko ime" />
-        <Entry x:Name="PasswordEntry" Placeholder="Lozinka" IsPassword="True" />
+        <Entry x:Name="UsernameEntry" Placeholder="Korisničko ime" PlaceholderColor="Gray" />
+        <Entry x:Name="PasswordEntry" Placeholder="Lozinka" IsPassword="True" PlaceholderColor="Gray"  />
+        <Label Text="Podaci potrebni za kupovinu" HorizontalTextAlignment="Center"/>
+        <Entry x:Name="FullNameEntry" Placeholder="Ime i Prezime" PlaceholderColor="Gray"  />
+        <Entry x:Name="EmailEntry" Placeholder="Email adresa" Keyboard="Email" PlaceholderColor="Gray"  />
+        <Entry x:Name="PhoneEntry" Placeholder="Broj telefona" Keyboard="Telephone" PlaceholderColor="Gray"  />
+        <Entry x:Name="AddressEntry" Placeholder="Adresa za dostavu" PlaceholderColor="Gray"  />
 
         <Button Text="REGISTRUJ ME"
                 BackgroundColor="#002395"
