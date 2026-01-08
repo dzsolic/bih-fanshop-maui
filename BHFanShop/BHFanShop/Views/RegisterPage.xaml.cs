@@ -22,7 +22,7 @@ public partial class RegisterPage : ContentPage
             await DisplayAlertAsync("Greška", "Unjeli ste neispravno lozinku ili korisnicko ime.", "OK");
             return;
         }
-        bool pass = LoginService.Register(username, password, fullName, email, phone, address);
+        bool pass = await LoginService.Register(username, password, fullName, email, phone, address);
         if (pass)
         {
             await DisplayAlertAsync("Uspješno", $"Registracija završena! Dobrodošao {fullName}", "OK");

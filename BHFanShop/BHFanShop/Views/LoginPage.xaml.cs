@@ -13,7 +13,7 @@ public partial class LoginPage : ContentPage
         string username = UsernameEntry.Text;
         string password = PasswordEntry.Text;
 
-        bool pass = LoginService.Login(username, password);
+        bool pass = await LoginService.Login(username, password);
 
         if (pass)
         {

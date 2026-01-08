@@ -8,51 +8,52 @@ namespace BHFanShop.Services
 {
     public static class LoginService
     {
-        private static List<User> users = new List<User>()
-        {
-            new User{ Username = "a", Password="a", Address="test", FullName="imeprezime" ,Email="test@gmail.com", Phone="225882", TicketCounter = 0, JerseyCounter = 0,Status = "Navijač"}
-        };
+        private static DBService dbService = new DBService();
         public static User CurrentUser { get; set; }
-        public static bool Register(string username, string password, string fullName, string email, string phone, string address)
+        public static async Task<bool> Register(string username, string password, string fullName, string email, string phone, string address)
         {
-            foreach (var u in users)
+            var existing = await dbService.GetUserAsync(username);
+            if (existing != null) return false;
+            var newUser = new User
             {
-                if (u.Username == username)
-                {
-                    return false;
-                }
-            }
-            users.Add(new User { Username = username, Password = password, FullName = fullName, Email = email , Phone = phone, Address = address ,TicketCounter = 0, JerseyCounter = 0, Status = "Navijač" });
+                Username = username,
+                Password = password,
+                FullName = fullName,
+                Email = email,
+                Phone = phone,
+                Address = address
+            };
+            await dbService.SaveUserAsync(newUser);
             return true;
         }
-        public static bool Login(string username, string password)
+        public static async Task<bool> Login(string username, string password)
         {
 
-            foreach (var u in users)
-            {
+            var user = await dbService.GetUserAsync(username);
 
-                if (u.Username == username && u.Password == password)
-                {
-                    CurrentUser = u;
-                    return true;
-                }
+            if (user != null && user.Password == password)
+            {
+                CurrentUser = user;
+                return true;
             }
             return false;
         }
-        public static void AddTicketCurrentUser()
+        public static async void AddTicketCurrentUser()
         {
-            if(CurrentUser != null)
+            if (CurrentUser != null)
             {
                 CurrentUser.TicketCounter += 1;
                 StatusCheckCurrentUser();
+                await dbService.SaveUserAsync(CurrentUser);
             }
         }
-        public static void AddJerseyCurrentUser()
+        public static async void AddJerseyCurrentUser()
         {
-            if(CurrentUser != null)
+            if (CurrentUser != null)
             {
                 CurrentUser.JerseyCounter += 1;
                 StatusCheckCurrentUser();
+                await dbService.SaveUserAsync(CurrentUser);
             }
         }
         private static void StatusCheckCurrentUser() { 
