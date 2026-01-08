@@ -38,7 +38,7 @@
                    FontSize="11" 
                    FontAttributes="Bold" 
                    CharacterSpacing="1"/>
-                    <Label Text="IME I PREZIME NAVIJAČA:" 
+                    <Label Text="KORISNIČKO IME NAVIJAČA:" 
                    TextColor="LightGray" 
                    FontSize="10" 
                    FontAttributes="Bold" />
