@@ -91,26 +91,32 @@
                     </VerticalStackLayout>
                 </Border>
 
-                <Border x:Name="TicketView" IsVisible="False" BackgroundColor="White"
-        Stroke="Gold" StrokeThickness="2" StrokeShape="RoundRectangle 10"
-        Margin="0,20" Padding="0">
-                    <Grid ColumnDefinitions="*,Auto,120" HeightRequest="160" Padding="0">
-                      
-                        <VerticalStackLayout Grid.Column="0" Padding="12" Spacing="4" VerticalOptions="Center">
-                            <Label x:Name="TicketUserLabel" Text="IME PREZIME" FontAttributes="Bold" FontSize="16" TextColor="Black" />
-                            <Label x:Name="TicketMatchLabel" Text="Utakmica" FontSize="13" TextColor="#0046b8" />
-                            <Label x:Name="TicketDateLabel" Text="Datum" FontSize="12" TextColor="Black" />
-                        </VerticalStackLayout>
+                <CollectionView x:Name="TicketsListView" Margin="0,10,0,0">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border BackgroundColor="White" Stroke="Gold" StrokeThickness="2" 
+                    StrokeShape="RoundRectangle 10" Margin="0,10" Padding="0">
+                                <Grid ColumnDefinitions="*,Auto,120" HeightRequest="160" Padding="0">
 
-                        <BoxView Grid.Column="1" WidthRequest="1" Color="LightGray" Margin="6,10" />
+                                    <VerticalStackLayout Grid.Column="0" Padding="12" Spacing="2" VerticalOptions="Center">
+                                        <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="16" TextColor="Black" />
+                                        <Label Text="{Binding Match}" FontSize="13" TextColor="#0046b8" />
+                                        <Label Text="{Binding Date}" FontSize="12" TextColor="Black" />
+                                        <Label Text="{Binding Side, StringFormat='STRANA: {0}'}" FontSize="11" TextColor="Gray" />
+                                        <Label Text="{Binding Seat, StringFormat='SJEDIŠTE: {0}'}" FontSize="11" TextColor="Gray" />
+                                    </VerticalStackLayout>
 
-                       
-                        <Grid Grid.Column="2" Padding="10" RowDefinitions="Auto,Auto" ColumnDefinitions="Auto" BackgroundColor="#F8F8F8">
-                            <Image x:Name="QRCodeImage" HeightRequest="90" WidthRequest="90" Grid.Row="0" />
-                            <Label Text="SCAN ME" Grid.Row="1" HorizontalOptions="Center" FontSize="9" TextColor="Black" Margin="0,6,0,0" />
-                        </Grid>
-                    </Grid>
-                </Border>
+                                    <BoxView Grid.Column="1" WidthRequest="1" Color="LightGray" Margin="6,10" />
+
+                                    <Grid Grid.Column="2" Padding="10" RowDefinitions="Auto,Auto" BackgroundColor="#F8F8F8">
+                                        <Image Source="{Binding QrUrl}" HeightRequest="90" WidthRequest="90" Grid.Row="0" />
+                                        <Label Text="SCAN ME" Grid.Row="1" HorizontalOptions="Center" FontSize="9" TextColor="Black" Margin="0,6,0,0" />
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
 
             </VerticalStackLayout>
     </ScrollView>

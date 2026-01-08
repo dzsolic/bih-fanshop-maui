@@ -19,6 +19,7 @@ namespace BHFanShop.Services
 
             _database = new SQLiteAsyncConnection(dbPath);
             await _database.CreateTableAsync<User>();
+            await _database.CreateTableAsync<Ticket>();
         }
 
         public async Task<List<User>> GetUsersAsync()
@@ -41,6 +42,17 @@ namespace BHFanShop.Services
                 return await _database.UpdateAsync(user);
             else
                 return await _database.InsertAsync(user);
+        }
+        public async Task SaveTicketAsync(Ticket ticket)
+        {
+            await Init();
+            await _database.InsertAsync(ticket);
+        }
+
+        public async Task<List<Ticket>> GetTicketsForUserAsync(string username)
+        {
+            await Init();
+            return await _database.Table<Ticket>().Where(t => t.Username == username).ToListAsync();
         }
     }
 }

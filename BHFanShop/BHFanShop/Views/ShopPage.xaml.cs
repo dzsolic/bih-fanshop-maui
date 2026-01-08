@@ -6,7 +6,9 @@ namespace BHFanShop.Views;
 
 public partial class ShopPage : ContentPage
 {
-    private Match? nextMatch;
+    public ObservableCollection<Ticket> PurchasedTickets { get; set; } = new();
+    private DBService _db = new DBService();
+    private Match nextMatch;
     public ShopPage()
     {
         InitializeComponent();
@@ -19,9 +21,13 @@ public partial class ShopPage : ContentPage
             new Jersey { Name = "Baby Set",        Price = "79 KM",  Image = "babyset.jpeg" }
         };
         nextMatch = MatchData.GetNextUpcoming();
-        NextMatchLabel.Text = nextMatch != null
-            ? $"Utakmica: {nextMatch.Home} - {nextMatch.Away} ({nextMatch.Date:dd.MM.yyyy})"
-            : "Utakmica: Nema dostupnih utakmica";
+        NextMatchLabel.Text = $"Utakmica: {nextMatch.Home} - {nextMatch.Away} ({nextMatch.Date:dd.MM.yyyy})";
+        LoadUserTickets();
+    }
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        await LoadUserTickets();
     }
 
     private async void OnBuyClicked(object sender, EventArgs e)
@@ -45,35 +51,61 @@ public partial class ShopPage : ContentPage
                 $"Hvala {user.FullName}, vaša narudžba je primljena!", "OK");
         }
     }
+    private async Task LoadUserTickets()
+    {
+        var user = LoginService.CurrentUser;
+        if (user != null)
+        {
+            var ticketsFromDb = await _db.GetTicketsForUserAsync(user.Username);
+            PurchasedTickets.Clear();
+            foreach (var t in ticketsFromDb)
+            {
+                PurchasedTickets.Add(t);
+            }
+            TicketsListView.ItemsSource = PurchasedTickets;
+        }
+    }
     private async void OnTicketClicked(object Sender, EventArgs e)
     {
-        if (nextMatch == null)
-        {
-            await DisplayAlertAsync("Greška", "Nema dostupne utakmice.", "OK");
-            return;
-        }
-        var usr = LoginService.CurrentUser;
-        bool confirm = await DisplayAlertAsync("Potvrda Rezervacije",
-        $"Utakmica: {nextMatch.Home} - {nextMatch.Away}\n" +
-        $"Datum: {nextMatch.Date:dd.MM.yyyy}\n" +
-        $"Lokacija: Stadion Bilino Polje\n\n" +
-        $"Karta će biti izdata na ime: {usr.FullName}\n" +
-        "Želite li potvrditi kupovinu ulaznice?", "POTVRDI", "ODUSTANI");
+        var user = LoginService.CurrentUser;
+
+       
+        string ticketName = await DisplayPromptAsync("Podaci", "Ime na karti:", initialValue: user.FullName);
+        if (string.IsNullOrWhiteSpace(ticketName)) return;
+
+
+        string side = await DisplayPromptAsync("Podaci", "Strana (Sjever, Jug, Istok, Zapad):");
+        if (string.IsNullOrWhiteSpace(side)) return;
+
+        string seat = await DisplayPromptAsync("Podaci", "Broj sjedišta (npr. B-12):");
+        if (string.IsNullOrWhiteSpace(seat)) return;
+
+
+        bool confirm = await DisplayAlertAsync("Potvrda", $"Karta za {side}, sjedište {seat}?", "DA", "NE");
 
         if (confirm)
         {
-            TicketUserLabel.Text = usr.FullName.ToUpper();
-            TicketMatchLabel.Text = $"{nextMatch.Home} - {nextMatch.Away}";
-            TicketDateLabel.Text = $"{nextMatch.Date:dd.MM.yyyy}";
+           
+            var newTicket = new Ticket
+            {
+                Username = LoginService.CurrentUser.Username,
+                Name = ticketName.ToUpper(),
+                Match = $"{nextMatch.Home} - {nextMatch.Away}",
+                Date = nextMatch.Date.ToString("dd.MM.yyyy"),
+                Seat = seat.ToUpper(),
+                Side = side.ToUpper(),
+                QrUrl = $"https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={Uri.EscapeDataString($"IME={ticketName};UTAKMICA={nextMatch.Home}-{nextMatch.Away};SJEDISTE={seat};STRANA={side}")}"
+            };
 
-            var payload = $"IME={usr.FullName};UTAKMICA={nextMatch.Home}-{nextMatch.Away};DATUM={nextMatch.Date:dd.MM.yyyy}";
-            var url = $"https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={Uri.EscapeDataString(payload)}";
-            QRCodeImage.Source = ImageSource.FromUri(new Uri(url));
+     
+            PurchasedTickets.Add(newTicket);
+            await _db.SaveTicketAsync(newTicket);
+            TicketsListView.ItemsSource = PurchasedTickets;
 
-            TicketView.IsVisible = true;
-
+            
             LoginService.AddTicketCurrentUser();
-            await DisplayAlertAsync("Uspješno", "Vaša karta je generisana! Možete je pronaći ispod.", "U redu");
+
+            await DisplayAlertAsync("Uspješno", "Karta dodana u vašu listu!", "OK");
         }
     }
 }
