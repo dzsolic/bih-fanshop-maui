@@ -11,10 +11,8 @@
         
         <VerticalStackLayout Padding="20" Spacing="25">
             
-            <Label Text="FAN SHOP – DRESOVI"
-                   TextColor="#0046b8"
-                   FontSize="22"
-                   FontAttributes="Bold"
+            <Label Text="FAN SHOP – DRESOVI" TextColor="#0046b8"
+                   FontSize="22" FontAttributes="Bold"
                    HorizontalOptions="Center" />
 
 
@@ -22,8 +20,7 @@
                 SelectionMode="None">
 
                 <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical"
-                         Span="2"
+                    <GridItemsLayout Orientation="Vertical" Span="2"
                          HorizontalItemSpacing="15"
                          VerticalItemSpacing="20" />
                 </CollectionView.ItemsLayout>
@@ -32,10 +29,8 @@
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Border Stroke="#0046b8"
-                                StrokeThickness="2"
-                                StrokeShape="RoundRectangle 20"
-                                BackgroundColor="#0046b8"
+                        <Border Stroke="#0046b8" StrokeThickness="2"
+                                StrokeShape="RoundRectangle 20" BackgroundColor="#0046b8" 
                                 Padding="10">
                          <Border.Shadow>
                              <Shadow Brush="#0046b8" Offset="3,3" Radius="10" Opacity="0.3" />
@@ -44,29 +39,19 @@
                             <VerticalStackLayout Spacing="10">
 
                                 <Image Source="{Binding Image}"
-                                   HeightRequest="160"
-                                   Aspect="AspectFill"
-                                   Margin="0,5" />              
+                                   HeightRequest="160"  Aspect="AspectFill" Margin="0,5" />              
 
 
-                                <Label Text="{Binding Name}"
-                                       TextColor="White"
-                                       FontAttributes="Bold"
-                                       HorizontalOptions="Center" />
+                                <Label Text="{Binding Name}" TextColor="White"
+                                       FontAttributes="Bold" HorizontalOptions="Center" />
 
-                                <Label Text="{Binding Price}"
-                                       TextColor="Gold"
-                                       HorizontalOptions="Center"
-                                       FontSize="16"
-                                       FontAttributes="Bold"/>
+                                <Label Text="{Binding Price}" TextColor="Gold" HorizontalOptions="Center"
+                                       FontSize="16" FontAttributes="Bold"/>
 
-                                <Button Text="KUPI"
-                                    BackgroundColor="Gold"
-                                    TextColor="White"
-                                    FontAttributes="Bold"
-                                    CornerRadius="15"
-                                    HeightRequest="40"
-                                     Clicked="OnBuyClicked"/>           
+                                <Button Text="KUPI" BackgroundColor="Gold"
+                                    TextColor="White" FontAttributes="Bold"
+                                    CornerRadius="15" HeightRequest="40"
+                                    Clicked="OnBuyClicked"/>           
 
 
                             </VerticalStackLayout>
@@ -80,14 +65,14 @@
             <BoxView HeightRequest="2" Color="#0046b8" Opacity="0.3" />
 
                 <Label Text="KUPOVINA ULAZNICA" TextColor="Gold" FontSize="22"
-       FontAttributes="Bold" HorizontalOptions="Center" />
+                        FontAttributes="Bold" HorizontalOptions="Center" />
 
                 <Border BackgroundColor="#AA0046b8" Stroke="White" StrokeThickness="1"
-        StrokeShape="RoundRectangle 20" Padding="20">
+                        StrokeShape="RoundRectangle 20" Padding="20">
                     <VerticalStackLayout Spacing="15">
                         <Label x:Name="NextMatchLabel" Text="Utakmica: -" TextColor="White" />
                         <Button Text="KUPI KARTU" BackgroundColor="Gold" TextColor="Black"
-                FontAttributes="Bold" Clicked="OnTicketClicked" />
+                                FontAttributes="Bold" Clicked="OnTicketClicked" />
                     </VerticalStackLayout>
                 </Border>
 
@@ -95,7 +80,7 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Border BackgroundColor="White" Stroke="Gold" StrokeThickness="2" 
-                    StrokeShape="RoundRectangle 10" Margin="0,10" Padding="0">
+                                    StrokeShape="RoundRectangle 10" Margin="0,10" Padding="0">
                                 <Grid ColumnDefinitions="*,Auto,120" HeightRequest="160" Padding="0">
 
                                     <VerticalStackLayout Grid.Column="0" Padding="12" Spacing="2" VerticalOptions="Center">

@@ -4,10 +4,8 @@
              x:Class="BHFanShop.Views.FirstPage">
     <Grid RowDefinitions="1*, 1.2*, 2*" Padding="20">
         <Image Source="stadion.jpg" 
-           Aspect="AspectFill" 
-           Opacity="1" 
-           Grid.RowSpan="3" 
-           HorizontalOptions="Fill" 
+           Aspect="AspectFill" Opacity="1" 
+           Grid.RowSpan="3" HorizontalOptions="Fill" 
            VerticalOptions="Fill"
            Margin="-20" />
         

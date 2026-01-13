@@ -11,15 +11,12 @@
         <Entry x:Name="PasswordEntry" Placeholder="Lozinka" IsPassword="True" />
 
         <Button Text="PRIJAVI SE" 
-                BackgroundColor="#002395" 
-                TextColor="White"
-                HeightRequest="50"
-                Clicked="OnLoginClicked" />
+                BackgroundColor="#002395" TextColor="White"
+                HeightRequest="50" Clicked="OnLoginClicked" />
         <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
             <Label Text="Nemaš nalog?" VerticalOptions="Center" />
             <Button Text="Registruj se" 
-                    TextColor="#002395" 
-                    BackgroundColor="Transparent" 
+                    TextColor="#002395" BackgroundColor="Transparent" 
                     Padding="0"
                     Clicked="OnGoToRegisterClicked" />
         </HorizontalStackLayout>

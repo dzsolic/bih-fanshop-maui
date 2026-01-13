@@ -21,7 +21,7 @@
                     </Label>
                     <BoxView HeightRequest="2" WidthRequest="60" Color="Gold" HorizontalOptions="Center" />
                     <Label Text="Prati put naših zmajeva" 
-                           TextColor="LightGray" 
+                           TextColor="#CC0046b8" 
                            FontSize="14" 
                            HorizontalOptions="Center" />
                 </VerticalStackLayout>
@@ -43,7 +43,7 @@
                     </Grid>
                 </Border>
 
-                <Label Text="MLADE SELEKCIJE" TextColor="White" FontSize="16" FontAttributes="Bold" Margin="0,10,0,0" />
+                <Label Text="MLADE SELEKCIJE" TextColor="#CC0046b8" FontSize="16" FontAttributes="Bold" Margin="0,10,0,0" />
 
                 <Border Stroke="#0046b8" BackgroundColor="#CC0046b8" StrokeShape="RoundRectangle 15" HeightRequest="70">
                     <Border.GestureRecognizers>
@@ -65,9 +65,7 @@
                     </HorizontalStackLayout>
                 </Border>
 
-                <Border Stroke="#0046b8"
-                        BackgroundColor="#CC0046b8"
-                        StrokeShape="RoundRectangle 15"
+                <Border Stroke="#0046b8" BackgroundColor="#CC0046b8" StrokeShape="RoundRectangle 15"
                         HeightRequest="70">
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnU17Clicked" />
@@ -76,15 +74,13 @@
                     <HorizontalStackLayout Spacing="20" Padding="20,0">
                         <Label Text="U17" TextColor="Gold" FontSize="22" FontAttributes="Bold" VerticalOptions="Center" />
 
-                        <Label Text="Kadeti"
-                               TextColor="White"
-                               FontSize="16"
+                        <Label Text="Kadeti" TextColor="White" FontSize="16"
                                VerticalOptions="Center" />
                     </HorizontalStackLayout>
                 </Border>
 
 
-                <Label Text="ŽENSKI FUDBAL" TextColor="White" FontSize="16" FontAttributes="Bold" Margin="0,10,0,0" />
+                <Label Text="ŽENSKI FUDBAL" TextColor="#CC0046b8" FontSize="16" FontAttributes="Bold" Margin="0,10,0,0" />
 
                 <Border Stroke="#0046b8" BackgroundColor="#CC0046b8" StrokeShape="RoundRectangle 15" HeightRequest="70">
                     <Border.GestureRecognizers>
@@ -110,12 +106,9 @@
                         <Image Source="bhtelecom.png" HeightRequest="40" Margin="10" Opacity="0.8" />
                     </FlexLayout>
 
-                    <Label Text="© 2026 N/FS BIH" 
-                           TextColor="White" 
-                           Opacity="0.5" 
-                           FontSize="10" 
-                           HorizontalOptions="Center" 
-                           Margin="0,20,0,0" />
+                    <Label Text="© 2026 N/FS BIH" TextColor="White" 
+                           Opacity="0.5"  FontSize="10" 
+                           HorizontalOptions="Center"  Margin="0,20,0,0" />
                 </VerticalStackLayout>
 
             </VerticalStackLayout>

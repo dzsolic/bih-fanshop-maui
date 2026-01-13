@@ -16,19 +16,17 @@
         <Entry x:Name="PhoneEntry" Placeholder="Broj telefona" Keyboard="Telephone" PlaceholderColor="Gray"  />
         <Entry x:Name="AddressEntry" Placeholder="Adresa za dostavu" PlaceholderColor="Gray"  />
 
-        <Button Text="REGISTRUJ ME"
-                BackgroundColor="#002395"
-                TextColor="White"
-                HeightRequest="50"
+        <Button Text="REGISTRUJ ME" TextColor="White"
+                BackgroundColor="#002395" HeightRequest="50"
                 Clicked="OnRegisterClicked" />
 
         <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
             <Label Text="Već imaš nalog?" VerticalOptions="Center" />
             <Button Text="Prijavi se"
-            TextColor="#002395"
-            BackgroundColor="Transparent"
-            Padding="0"
-            Clicked="OnGoToLoginClicked" />
+                TextColor="#002395"
+                BackgroundColor="Transparent"
+                Padding="0"
+                Clicked="OnGoToLoginClicked" />
         </HorizontalStackLayout>
 
 

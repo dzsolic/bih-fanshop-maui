@@ -139,10 +139,8 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:Match">
                         <Border Stroke="#0046b8" 
-                                StrokeThickness="2" 
-                                StrokeShape="RoundRectangle 15" 
-                                Padding="15" 
-                                Margin="0,5"
+                                StrokeThickness="2" StrokeShape="RoundRectangle 15" 
+                                Padding="15"  Margin="0,5"
                                 BackgroundColor="#E6F0FF">
                             <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto">
                                 <Label Text="{Binding Date, StringFormat='{0:dd.MM.yyyy}'}" Grid.ColumnSpan="2" 

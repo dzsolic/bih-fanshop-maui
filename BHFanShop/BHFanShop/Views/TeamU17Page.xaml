@@ -5,10 +5,8 @@
              BackgroundColor="Transparent">
 
     <Grid>
-        <Image Source="stadion.jpg"
-               Aspect="AspectFill"
-               HorizontalOptions="Fill"
-               VerticalOptions="Fill"
+        <Image Source="stadion.jpg"  Aspect="AspectFill"
+               HorizontalOptions="Fill" VerticalOptions="Fill"
                Margin="-20" />
 
         <CollectionView x:Name="PlayersList"
@@ -17,9 +15,9 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Border StrokeShape="RoundRectangle 15"
-                            BackgroundColor="#AA0046b8"
-                            Margin="0,5"
-                            Padding="15">
+                             BackgroundColor="#AA0046b8"
+                             Margin="0,5"
+                             Padding="15">
 
                         <HorizontalStackLayout Spacing="20">
                             <Image Source="{Binding Image}"
@@ -27,8 +25,7 @@
                                    HeightRequest="50" />
 
                             <VerticalStackLayout VerticalOptions="Center">
-                                <Label Text="{Binding Name}"
-                                       TextColor="White"
+                                <Label Text="{Binding Name}" TextColor="White"
                                        FontAttributes="Bold"
                                        FontSize="18" />
 

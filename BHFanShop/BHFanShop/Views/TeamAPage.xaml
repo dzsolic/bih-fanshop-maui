@@ -5,10 +5,8 @@
              BackgroundColor="Transparent"
              >
     <Grid>
-        <Image Source="stadion.jpg" 
-               Aspect="AspectFill" 
-               HorizontalOptions="Fill" 
-               VerticalOptions="Fill"
+        <Image Source="stadion.jpg"  Aspect="AspectFill" 
+               HorizontalOptions="Fill" VerticalOptions="Fill"
                Margin="-20" />
         
         <CollectionView x:Name="PlayersList" Margin="15" BackgroundColor="Transparent">

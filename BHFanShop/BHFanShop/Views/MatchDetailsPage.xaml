@@ -6,8 +6,7 @@
 
     <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
         <Border BackgroundColor="White"
-                StrokeShape="RoundRectangle 20"
-                Padding="20"
+                StrokeShape="RoundRectangle 20" Padding="20"
                 WidthRequest="320">
 
             <VerticalStackLayout Spacing="15">
@@ -15,28 +14,23 @@
                 <Grid ColumnDefinitions="*, Auto, *" HorizontalOptions="Fill">
                     <Label Grid.Column="0" 
                            Text="{Binding Home}" 
-                           FontAttributes="Bold" 
-                           FontSize="16" 
-                           TextColor="Black"
-                           HorizontalOptions="Center" />
+                           FontAttributes="Bold" FontSize="16" 
+                           TextColor="Black" HorizontalOptions="Center" />
 
                     <Label Grid.Column="1" 
-                           Text=" - " 
-                           FontSize="16" 
+                           Text=" - "  FontSize="16" 
                            TextColor="Gray"
                            Margin="5,0" />
 
                     <Label Grid.Column="2" 
                            Text="{Binding Away}" 
                            FontAttributes="Bold" 
-                           FontSize="16" 
-                           TextColor="Black"
+                           FontSize="16" TextColor="Black"
                            HorizontalOptions="Center" />
                 </Grid>
 
                 <Label Text="{Binding Result}"
-                       FontSize="35"
-                       TextColor="Gold"
+                       FontSize="35" TextColor="Gold"
                        FontAttributes="Bold"
                        HorizontalOptions="Center"/>
 
@@ -59,8 +53,7 @@
                 </CollectionView>
 
                 <Button Text="Zatvori"
-                        BackgroundColor="#0046b8"
-                        TextColor="White"
+                        BackgroundColor="#0046b8" TextColor="White"
                         Clicked="Close_Clicked"
                         Margin="0,10,0,0"/>
             </VerticalStackLayout>
