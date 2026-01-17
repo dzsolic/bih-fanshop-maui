@@ -17,8 +17,10 @@ public partial class ShopPage : ContentPage
         {
             new Jersey { Name = "Domaći dres",  Price = "109 KM", Image = "dres_domaci.jpeg" },
             new Jersey { Name = "Gostujući dres", Price = "109 KM", Image = "dres_gostujuci.jpeg" },
-            new Jersey { Name = "Retro dres",     Price = "129 KM", Image = "retro.png" },
-            new Jersey { Name = "Baby Set",        Price = "79 KM",  Image = "babyset.jpeg" }
+            new Jersey { Name = "Golmanski dres",     Price = "69 KM", Image = "golmanski.png" },
+            new Jersey { Name = "Limited Edition Set",        Price = "69 KM",  Image = "limitededition.jpeg" },
+            new Jersey { Name = "Retro dres",     Price = "129 KM", Image = "retro.png"  },
+            new Jersey { Name = "Baby Set",        Price = "59 KM",  Image = "babyset.jpeg" }
         };
         nextMatch = MatchData.GetNextUpcoming();
         NextMatchLabel.Text = $"Utakmica: {nextMatch.Home} - {nextMatch.Away} ({nextMatch.Date:dd.MM.yyyy})";

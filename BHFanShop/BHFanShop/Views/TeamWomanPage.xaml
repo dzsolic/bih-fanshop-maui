@@ -3,38 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BHFanShop.Views.TeamWomanPage"
              BackgroundColor="Transparent">
-
     <Grid>
-        <Image Source="stadion.jpg" Aspect="AspectFill"
-               HorizontalOptions="Fill" VerticalOptions="Fill"
-               Margin="-20" />
+        <Image Source="stadion.jpg" Aspect="AspectFill" HorizontalOptions="Fill" VerticalOptions="Fill" Margin="-20" />
 
-        <CollectionView x:Name="PlayersList"
-                        Margin="15"
-                        BackgroundColor="Transparent">
+        <CollectionView x:Name="PlayersList" Margin="15" BackgroundColor="Transparent">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Border StrokeShape="RoundRectangle 15"
-                            BackgroundColor="#AA0046b8"
-                            Margin="0,5"
-                            Padding="15">
-
+                    <Border StrokeShape="RoundRectangle 15" BackgroundColor="#AA0046b8" Margin="0,5" Padding="15">
                         <HorizontalStackLayout Spacing="20">
-                            <Image Source="{Binding Image}"
-                                   WidthRequest="50"
-                                   HeightRequest="50" />
-
-                            <VerticalStackLayout VerticalOptions="Center">
-                                <Label Text="{Binding Name}"
-                                       TextColor="White"  FontAttributes="Bold"
-                                       FontSize="18" />
-
-                                <Label Text="{Binding Club}"
-                                       TextColor="Gold"
-                                       FontSize="14" />
+                            <Image Source="{Binding Image}" WidthRequest="50" HeightRequest="50" />
+                            <VerticalStackLayout VerticalOptions="Center" Spacing="2">
+                                <Label Text="{Binding Name}" TextColor="White" FontAttributes="Bold" FontSize="18" />
+                                <Border BackgroundColor="#FFD700" StrokeShape="RoundRectangle 10" Padding="6,1" HorizontalOptions="Start">
+                                    <Label Text="{Binding Position}" TextColor="#0046b8" FontSize="12" FontAttributes="Bold" />
+                                </Border>
+                                <Label Text="{Binding Club}" TextColor="Gold" FontSize="14" />
                             </VerticalStackLayout>
                         </HorizontalStackLayout>
-
                     </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
