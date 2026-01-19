@@ -19,11 +19,9 @@ namespace BHFanShop.Services
             new Match { Date = new DateTime(2026,3,26), Home="Vels", Away="Bosna i Hercegovina" }
         };
 
-        public static IReadOnlyList<Match> GetAll() => _matches;
+        
 
-        public static IReadOnlyList<Match> GetPlayed() => _matches.Where(m => m.IsPlayed).ToList();
-
-        public static IReadOnlyList<Match> GetUpcoming() => _matches.Where(m => !m.IsPlayed).OrderBy(m => m.Date).ToList();
+        public static List<Match> GetUpcoming() => _matches.Where(m => !m.IsPlayed).OrderBy(m => m.Date).ToList();
 
         public static Match? GetNextUpcoming() => GetUpcoming().FirstOrDefault();
     }
