@@ -94,7 +94,7 @@
                                FontAttributes="Bold" 
                                HorizontalOptions="Center" 
                                CharacterSpacing="3"/>
-                    <Label Text="BHFanShop Oficijalna Aplikacija" 
+                    <Label Text="Oficijalna Aplikacija FS BiH" 
                            TextColor="White" 
                            FontSize="20" 
                            FontAttributes="Bold" 
